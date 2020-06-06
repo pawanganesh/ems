@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+        <div class="col-md-10-offset-md-1 mt-5">
+            <div class="jumbotron">
+            <h1 class="display-4 text-center">Account Registration</h1>
+            <hr class="my-4">
+            <form action="" method="POST" autocomplete="off">
+                {% csrf_token %}
+                {{form.first_name|as_crispy_field}}
+                {{form.last_name|as_crispy_field}}
+                {{form.username|as_crispy_field}}
+                {{form.email|as_crispy_field}}
+                {{form.password1|as_crispy_field}}
+                {{form.password2|as_crispy_field}}
+                
+                <!-- Button trigger modal -->
+                <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-database"></i>Submit</button>
+            </form>
+            </div>
+        </div>
+    
+        
+{% endblock content %}

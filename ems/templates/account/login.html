@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="col-md-10-offset-md-1 mt-5">
+        <div class="jumbotron">
+        <h1 class="display-4 text-center">Login to Continue</h1>
+        <hr class="my-4">
+        <form action="" method="POST" autocomplete="off">
+            {% csrf_token %}
+            {{form|crispy}}
+            <button type="submit" class="btn btn-success btn-block btn-lg">Login</button>
+        </form>
+        <div>
+            {% for message in  messages %}
+                <p id="messages" class="text-center font-weight-bold">{{message}}</p>
+            {% endfor %}
+        </div>
+        </div>
+        
+    </div>
+    
+    
+
+{% endblock content %}

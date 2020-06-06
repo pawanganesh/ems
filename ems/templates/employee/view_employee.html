@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        <img src="{{employee.img.url}}" class="rounded mx-auto d-block" alt="..." width="300" height="300">
+        <div style="text-align: center;">
+            <h2 class="font-weight-bold">{{employee.fullname}}</h2>
+            <p>{{employee.mobile}}</p>
+            <p>{{employee.position}}</p>
+        </div>
+        <div class="text-center">
+            <a href="{% url 'employee_edit' employee.id %}" class="btn btn-seconday px-0">
+                <i class="far fa-edit fa-lg"></i>
+            </a>
+            <form action="{% url 'employee_delete' employee.id %}" method="POST" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn">
+                    <i class="fas fa-trash fa-lg text-danger float-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
